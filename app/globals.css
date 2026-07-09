@@ -192,21 +192,15 @@ a.link::after {
     no-repeat center / contain;
 }
 
-.sticky {
-  display: table;
-}
-.sticky tr {
-  position: fixed;
-  width: 95vw;
+/* Sticky table header: position: sticky keeps the cells in the table
+   flow, so column alignment survives scrolling (unlike the original
+   fork's position: fixed hack). */
+table.large thead td {
+  position: sticky;
+  top: 0;
+  z-index: 5;
   background: #000;
-  padding: 1.5rem 0 1rem 0;
-  display: table;
-  top: -4rem;
-  transform: translateY(4rem);
-  transition: transform 400ms ease-out;
-}
-.sticky td {
-  border-bottom: none;
+  padding-top: 1rem;
 }
 
 .check svg {

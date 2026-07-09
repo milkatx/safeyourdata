@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -228,27 +228,9 @@ function PluginTable({
   onOpenFilter: (category: FilterCategory) => void;
   onRowNavigate: (slug: string) => void;
 }) {
-  const tableHeaderRef = useRef<HTMLTableSectionElement>(null);
-
-  // Sticky header on scroll, ported from the original project.
-  useEffect(() => {
-    const header = tableHeaderRef.current;
-    if (!header) return;
-    const sticky = header.getBoundingClientRect().top + 40;
-    const onScroll = () => {
-      if (window.scrollY > sticky) {
-        header.classList.add("sticky");
-      } else {
-        header.classList.remove("sticky");
-      }
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <table className="large mt-10" cellSpacing="0">
-      <thead ref={tableHeaderRef}>
+      <thead>
         <tr>
           <td>Name</td>
           <td
