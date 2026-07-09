@@ -314,6 +314,10 @@ table.large thead td {
     letter-spacing: -0.02em;
   }
 
+  .title {
+    padding-top: 12vh;
+  }
+
   .dn {
     display: none;
   }
