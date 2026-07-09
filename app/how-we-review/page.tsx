@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Title from "@/components/Title";
+import { ArrowLeft } from "@/components/Arrows";
 import { EvidenceTag } from "@/components/Badges";
 
 export const metadata: Metadata = {
@@ -67,7 +68,7 @@ export default function HowWeReviewPage() {
   return (
     <>
       <Link href="/" className="auxNav arrowback" aria-label="Back to directory">
-        ←
+        <ArrowLeft className="text-[2rem]" />
       </Link>
 
       <Title className="title m0 p0" text="How we*review" noAnimation />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Title from "@/components/Title";
+import { ArrowLeft } from "@/components/Arrows";
 import { RiskBadge, VerificationBadge } from "@/components/Badges";
 import { DataList, DetailSection, ListValue, Value } from "@/components/Detail";
 import { UNKNOWN, type Plugin } from "@/lib/plugins";
@@ -68,7 +69,7 @@ export default async function PluginPage({
       />
 
       <Link href="/" className="auxNav arrowback" aria-label="Back to directory">
-        ←
+        <ArrowLeft className="text-[2rem]" />
       </Link>
 
       <Title className="title m0 p0" text={plugin.name} noAnimation />

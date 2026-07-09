@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Title from "@/components/Title";
+import { ArrowLeft } from "@/components/Arrows";
 import { GITHUB_URL, UPSTREAM_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -17,10 +18,10 @@ export default function AboutPage() {
         className="auxNav arrowback"
         aria-label="Back to directory"
       >
-        ←
+        <ArrowLeft className="text-[2rem]" />
       </Link>
 
-      <Title className="title m0 p0" text="Is your*data safe?" noAnimation />
+      <Title className="title m0 p0" text="Is your*data safe?" />
 
       <p className="f1 extend m-0">
         public directory that explains how design plugins and assets handle your
@@ -115,6 +116,20 @@ export default function AboutPage() {
             </a>
           </li>
         </ul>
+
+        <h3 id="who-is-behind">Who is behind?</h3>
+        <p>
+          Safe Your Data is created and maintained by{" "}
+          <a
+            className="link"
+            href="https://www.milka.work"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Amilcar Teixeira
+          </a>
+          , a staff product designer blending design, code and AI.
+        </p>
 
         <h3 id="credits">Credits</h3>
         <p>

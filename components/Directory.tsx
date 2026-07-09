@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Plugin } from "@/lib/plugins";
 import { RiskBadge, VerificationBadge } from "./Badges";
+import { ArrowRight } from "./Arrows";
 
 const FILTER_CATEGORIES = [
   "platform",
@@ -301,7 +302,9 @@ function PluginTable({
               <td>
                 <VerificationBadge status={plugin.verificationStatus} />
               </td>
-              <td className="text-right">→</td>
+              <td className="text-right">
+                <ArrowRight />
+              </td>
             </tr>
           ))
         )}

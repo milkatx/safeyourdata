@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CONTACT_EMAIL, GITHUB_URL } from "@/lib/site";
+import { ArrowRight } from "./Arrows";
 
 const PLATFORMS = ["Figma", "FigJam", "Framer", "Other"] as const;
 
@@ -124,7 +125,7 @@ export default function SubmitForm() {
         type="submit"
         className="mt-8 cursor-pointer border border-white bg-transparent px-8 py-3 font-[inherit] text-[1.1rem] font-medium text-white transition-colors hover:bg-white hover:text-black"
       >
-        Open GitHub issue →
+        Open GitHub issue <ArrowRight />
       </button>
 
       <p className="mt-6 text-sm text-[#757575]">

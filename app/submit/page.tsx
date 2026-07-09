@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Title from "@/components/Title";
+import { ArrowLeft } from "@/components/Arrows";
 import SubmitForm from "@/components/SubmitForm";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export default function SubmitPage() {
   return (
     <>
       <Link href="/" className="auxNav arrowback" aria-label="Back to directory">
-        ←
+        <ArrowLeft className="text-[2rem]" />
       </Link>
 
       <Title className="title m0 p0" text="Submit a*plugin" noAnimation />

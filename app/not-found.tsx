@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Title from "@/components/Title";
+import { ArrowLeft } from "@/components/Arrows";
 
 export default function NotFound() {
   return (
     <>
       <Link href="/" className="auxNav arrowback" aria-label="Back to directory">
-        ←
+        <ArrowLeft className="text-[2rem]" />
       </Link>
       <Title className="title m0 p0" text="Not*found" noAnimation />
       <div className="moreabout">
