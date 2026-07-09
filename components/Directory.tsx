@@ -162,7 +162,7 @@ export default function Directory({ plugins }: { plugins: Plugin[] }) {
             id="search"
             type="search"
             className="searchInput"
-            placeholder="Search by name, platform, developer or category…"
+            placeholder="Search plugins…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             autoComplete="off"
