@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GITHUB_URL, UPSTREAM_NAME, UPSTREAM_URL } from "@/lib/site";
+import { GITHUB_URL } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -33,18 +33,6 @@ export default function Footer() {
           </li>
         </ul>
       </nav>
-      <p className="mt-6 mb-0">
-        Forked from{" "}
-        <a
-          href={UPSTREAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link"
-        >
-          {UPSTREAM_NAME}
-        </a>
-        . Adapted for plugin privacy and security reviews.
-      </p>
     </footer>
   );
 }
