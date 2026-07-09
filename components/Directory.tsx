@@ -169,33 +169,17 @@ export default function Directory({ plugins }: { plugins: Plugin[] }) {
           />
         </div>
 
-        <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[#757575]">
-          <span>Filter by</span>
-          {FILTER_CATEGORIES.map((category) => {
-            const count = filters[category].length;
-            return (
-              <button
-                key={category}
-                type="button"
-                className="cursor-pointer border-none bg-transparent p-0 font-[inherit] text-sm text-white transition-colors hover:text-[#757575]"
-                aria-pressed={count > 0}
-                onClick={() => setOpenCategory(category)}
-              >
-                {CATEGORY_LABELS[category]}
-                {count > 0 ? ` (${count})` : ""} <FilterSVG />
-              </button>
-            );
-          })}
-          {(activeCount > 0 || query) && (
+        {(activeCount > 0 || query) && (
+          <div className="mt-4 text-sm">
             <button
               type="button"
               className="cursor-pointer border-none bg-transparent p-0 font-[inherit] text-sm text-[#757575] transition-colors hover:text-white"
               onClick={clearFilters}
             >
-              Clear all
+              Clear filters
             </button>
-          )}
-        </div>
+          </div>
+        )}
 
         <PluginTable
           plugins={visiblePlugins}
