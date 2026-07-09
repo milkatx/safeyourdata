@@ -33,6 +33,12 @@ When no spreadsheet is configured, the bundled sample data in
 [`data/sample.csv`](data/sample.csv) is used, so the project works out of the
 box.
 
+The site is also optimized for AI agents following the
+[llms.txt](https://llmstxt.org) convention: `/llms.txt` serves a concise
+index of all reviews, and `/llms-full.txt` serves the complete review data
+as markdown. Both are generated from the same spreadsheet and revalidate
+hourly alongside the site.
+
 ## Running locally
 
 ```

@@ -12,15 +12,19 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Link href="/" className="auxNav arrowback" aria-label="Back to directory">
+      <Link
+        href="/"
+        className="auxNav arrowback"
+        aria-label="Back to directory"
+      >
         ←
       </Link>
 
-      <Title className="title m0 p0" text="Safe your*data is a" noAnimation />
+      <Title className="title m0 p0" text="Is your*data safe?" noAnimation />
 
       <p className="f1 extend m-0">
-        public directory that explains how design plugins and assets handle
-        your data — so designers can make informed decisions.
+        public directory that explains how design plugins and assets handle your
+        data — so designers can make informed decisions.
       </p>
 
       <div className="moreabout">
@@ -55,19 +59,28 @@ export default function AboutPage() {
           <li>Transparency — conclusions are never overstated.</li>
           <li>Community — reviews are open to scrutiny and contribution.</li>
           <li>Open source — the whole project is public and forkable.</li>
-          <li>Trust — earned by showing our evidence, not by claiming authority.</li>
-          <li>Education — helping the design community understand data privacy.</li>
+          <li>
+            Trust — earned by showing our evidence, not by claiming authority.
+          </li>
+          <li>
+            Education — helping the design community understand data privacy.
+          </li>
         </ul>
 
         <h3 id="open-source">Open source</h3>
         <p>
-          This project is open source. Everyone can contribute — issues and
-          pull requests are welcome, whether it’s a new review, a correction,
-          or code.
+          This project is open source. Everyone can contribute — issues and pull
+          requests are welcome, whether it’s a new review, a correction, or
+          code.
         </p>
         <ul>
           <li>
-            <a className="link" href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+            <a
+              className="link"
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub repository
             </a>
           </li>
@@ -106,20 +119,30 @@ export default function AboutPage() {
         <h3 id="credits">Credits</h3>
         <p>
           This project is built upon the incredible open-source project{" "}
-          <a className="link" href={UPSTREAM_URL} target="_blank" rel="noopener noreferrer">
+          <a
+            className="link"
+            href={UPSTREAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Brazilians Who Design
           </a>
           , created by Zé Fernandes and contributors.
         </p>
         <p>
           We adapted its architecture to create a public directory focused on
-          transparency around privacy and security in design plugins and
-          assets. We sincerely thank the creators for making their work openly
+          transparency around privacy and security in design plugins and assets.
+          We sincerely thank the creators for making their work openly
           available.
         </p>
         <p>
           Original repository:{" "}
-          <a className="link" href={UPSTREAM_URL} target="_blank" rel="noopener noreferrer">
+          <a
+            className="link"
+            href={UPSTREAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             github.com/zehfernandes/brazilianswhodesign
           </a>
         </p>
