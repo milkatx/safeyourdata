@@ -230,7 +230,7 @@ function PluginTable({
             Risk <FilterSVG />
           </td>
           <td
-            className="w-[18%] cursor-pointer"
+            className="dn w-[18%] cursor-pointer"
             onClick={() => onOpenFilter("verification")}
           >
             Verification <FilterSVG />
@@ -265,7 +265,7 @@ function PluginTable({
               <td>
                 <RiskBadge level={plugin.riskLevel} />
               </td>
-              <td>
+              <td className="dn">
                 <VerificationBadge status={plugin.verificationStatus} />
               </td>
               <td className="text-right">
