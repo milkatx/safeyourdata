@@ -1,6 +1,6 @@
 # Privacy
 
-Safe Your Data is a static directory. It practices what it preaches:
+Is Your Data Safe? is a static directory. It practices what it preaches:
 
 - **No accounts.** There is nothing to sign up for.
 - **No analytics or tracking scripts.** We don't measure you.

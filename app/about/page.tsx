@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Title from "@/components/Title";
+import AnimatedLede from "@/components/AnimatedLede";
 import { ArrowLeft } from "@/components/Arrows";
 import { GITHUB_URL, UPSTREAM_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Why Safe Your Data exists: transparency around privacy and security in design plugins and assets.",
+    "Why Is Your Data Safe? exists: transparency around privacy and security in design plugins and assets.",
 };
 
 export default function AboutPage() {
@@ -21,12 +22,12 @@ export default function AboutPage() {
         <ArrowLeft className="text-[2rem]" />
       </Link>
 
-      <Title className="title m0 p0" text="Is your*data safe?" />
+      <Title className="title m0 p0" text="Is your*data safe?" noAnimation />
 
-      <p className="f1 extend m-0">
-        public directory that explains how design plugins and assets handle your
-        data — so designers can make informed decisions.
-      </p>
+      <AnimatedLede
+        className="f1 extend m-0"
+        text="public directory that|explains how design|plugins and assets|handle your data —|so designers can make|informed decisions."
+      />
 
       <div className="moreabout">
         <h3>Why does this project exist?</h3>
@@ -119,7 +120,6 @@ export default function AboutPage() {
 
         <h3 id="who-is-behind">Who is behind?</h3>
         <p>
-          Safe Your Data is created and maintained by{" "}
           <a
             className="link"
             href="https://www.milka.work"
@@ -128,7 +128,6 @@ export default function AboutPage() {
           >
             Amilcar Teixeira
           </a>
-          , a staff product designer blending design, code and AI.
         </p>
 
         <h3 id="credits">Credits</h3>

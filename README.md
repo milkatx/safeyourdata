@@ -1,4 +1,4 @@
-# Safe Your Data
+# Is Your Data Safe?
 
 **Is your data safe?** A community-driven directory helping designers
 understand how plugins and assets handle their data.
