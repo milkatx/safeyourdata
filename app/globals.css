@@ -175,8 +175,12 @@ a.link:hover {
   color: #757575;
 }
 
-a.link[target="_blank"]::after {
-  content: " ↗";
+a.link::after {
+  content: "↗";
+  /* inline-block keeps the parent underline from running under the arrow,
+     matching the original fork's rendering */
+  display: inline-block;
+  margin-left: 0.25em;
 }
 
 .sticky {
