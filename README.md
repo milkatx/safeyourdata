@@ -1,47 +1,97 @@
-# Brazilians Who Design
+# Safe Your Data
 
-![](https://www.dropbox.com/s/x5udk39ad57ayp5/brazilianswhodesignthumb.png?raw=1)
+**Is your data safe?** A community-driven directory helping designers
+understand how plugins and assets handle their data.
 
-The website is built using Google Spreedsheet, [Next.js](https://nextjs.org/) and deployed at [Vercel](https://vercel.com/).
+Rather than claiming a plugin is "good" or "bad", each review documents what
+data the plugin can access, which permissions it requests, whether it talks to
+external services, APIs, databases, AI providers, analytics platforms or cloud
+storage — and clearly separates what is **verified**, what is **observed**,
+what is **inferred**, and what remains **unknown**.
 
-## Forking this project
+Built with [Next.js](https://nextjs.org/), TypeScript and Tailwind CSS,
+powered by a public Google Spreadsheet, and deployed on
+[Vercel](https://vercel.com/).
 
-We encourage you to create your directory featured a list of any professionals you think is relevant. The code is open source, and these instructions will help you running on your local machine to get started.
+## Credits
 
-### Link your spreedsheet
+This project was originally forked from
+[Brazilians Who Design](https://github.com/zehfernandes/brazilianswhodesign),
+created by Zé Fernandes and contributors. We adapted its architecture to build
+a public directory focused on transparency around privacy and security in
+design plugins and assets. We sincerely thank the creators for making their
+work open source. The original commit history is preserved in this repository.
 
-1. Duplicate [this spreedhsheet template](https://docs.google.com/spreadsheets/d/12LLA-NoHin0zQfmpEblgMjd260bmriLMowBAH1QDOhI/edit)
-2. Follow [this guide](https://leerob.io/snippets/google-sheets#usage) to allow access to your Google account
-3. Create a .env file and fill the informations below
+## How it works
+
+The entire directory is powered by a **public Google Spreadsheet** — the
+single source of truth. The site reads the sheet's CSV export at build time
+and revalidates hourly (ISR), so updating the spreadsheet automatically
+updates the website. No CMS, no database, no credentials.
+
+When no spreadsheet is configured, the bundled sample data in
+[`data/sample.csv`](data/sample.csv) is used, so the project works out of the
+box.
+
+## Running locally
+
 ```
-GOOGLE_PRIVATE_KEY=""
-GOOGLE_CLIENT_EMAIL=""
-```
-4. Copy the id between /spreadsheets/ and /edit in the url: 
-	> [https://docs.google.com/spreadsheets/d/__12LLA-NoHin0zQfmpEblgMjd260bmriLMowBAH1QDOhI__/edit](https://docs.google.com/spreadsheets/d/12LLA-NoHin0zQfmpEblgMjd260bmriLMowBAH1QDOhI/edit)
-5. Paste the ID in the file [`pages/api/designers.js`](https://github.com/zehfernandes/brazilianswhodesign/blob/main/pages/api/designers.js)
-
-### Install the dependencies
-
-Making sure you're in the correct project folder and install the dependencies:
-
-```
-yarn install
+npm install
+npm run dev
 ```
 
-### Run the project locally
+Open `localhost:3000`. That's it — sample data ships with the repo.
 
-To start the development server run:
+## Link your spreadsheet
+
+1. Create a Google Spreadsheet with a header row using the schema below
+   (or start from [`data/sample.csv`](data/sample.csv) via File → Import).
+2. Share it as **"Anyone with the link can view"**.
+3. Copy the ID between `/spreadsheets/d/` and `/edit` in the URL.
+4. Create a `.env` file (see [`.env.example`](.env.example)):
 
 ```
-yarn dev
+SHEET_ID="your-spreadsheet-id"
 ```
 
-In your browser, open `localhost:3000`.
+### Spreadsheet schema
 
+One row per plugin. Multi-value cells are separated with `;`. Empty cells and
+the word `Unknown` render as an explicit "Unknown" state — values are never
+guessed. Only rows with `approved` set to `Yes` are published.
 
-### Deploy at vercel
+| Column | Meaning |
+| --- | --- |
+| `id`, `slug`, `name` | Identity. `slug` is auto-generated from `name` if empty. |
+| `platform`, `category`, `developer`, `pricing` | Directory metadata (Figma, FigJam, Framer, Other…). |
+| `logo`, `official_url` | URLs. |
+| `description` | One-line description shown in the directory. |
+| `risk_level` | `Low`, `Medium`, `High` or `Unknown`. |
+| `risk_reason`, `mitigation`, `confidence` | Risk assessment fields. |
+| `verification_status` | `Verified`, `Community Review`, `Needs Review` or `Unknown`. |
+| `permissions`, `data_accessed` | What the plugin can touch (`;`-separated). |
+| `external_services`, `external_apis`, `analytics`, `ai_services`, `cloud_storage` | Where data may go (`;`-separated). |
+| `database_connection`, `authentication`, `telemetry`, `cookies` | Scalar findings; `None` is a meaningful reviewed value, distinct from `Unknown`. |
+| `privacy_policy`, `terms_of_service`, `github_url`, `support_url` | Resource links. |
+| `review_summary`, `tests_performed`, `evidence`, `limitations` | Review methodology. |
+| `reviewer`, `reviewed_at`, `updated_at` | Review provenance (ISO dates). |
+| `approved` | `Yes` to publish. |
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https%3A%2F%2Fgithub.com%2Fzehfernandes%2Fbrazilianswhodesign)
+## Deploy on Vercel
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
+Set `SHEET_ID` (and optionally `SITE_URL`) in the project's environment
+variables.
+
+## Contributing
+
+Issues and pull requests are welcome — see
+[CONTRIBUTING.md](CONTRIBUTING.md). To request a review for a plugin, use the
+submit page on the site or open an issue.
+
+## License
+
+[MIT](LICENSE) for the modifications and new work in this repository, with
+attribution to the original project preserved — see the [LICENSE](LICENSE)
+preamble.
