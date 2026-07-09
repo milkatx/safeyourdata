@@ -251,37 +251,30 @@ function PluginTable({
         <tr>
           <td>Name</td>
           <td
-            className="dn w-[15%] cursor-pointer"
+            className="w-[18%] cursor-pointer"
             onClick={() => onOpenFilter("platform")}
           >
             Platform <FilterSVG />
           </td>
           <td
-            className="dn w-[18%] cursor-pointer"
-            onClick={() => onOpenFilter("developer")}
-          >
-            Developer <FilterSVG />
-          </td>
-          <td
-            className="w-[14%] cursor-pointer"
+            className="w-[16%] cursor-pointer"
             onClick={() => onOpenFilter("risk")}
           >
             Risk <FilterSVG />
           </td>
           <td
-            className="w-[16%] cursor-pointer"
+            className="w-[18%] cursor-pointer"
             onClick={() => onOpenFilter("verification")}
           >
             Verification <FilterSVG />
           </td>
-          <td className="dn w-[12%]">Reviewed</td>
           <td className="w-8 text-right"></td>
         </tr>
       </thead>
       <tbody>
         {plugins.length === 0 ? (
           <tr className="cursor-default hover:bg-transparent">
-            <td colSpan={7} className="py-8 text-[1.1rem] text-[#757575]">
+            <td colSpan={5} className="py-8 text-[1.1rem] text-[#757575]">
               No plugins match. Try clearing filters, or{" "}
               <Link href="/submit" className="link">
                 submit a plugin
@@ -299,21 +292,14 @@ function PluginTable({
                   onClick={(e) => e.stopPropagation()}
                 >
                   {plugin.name}
-                  <span className="mt-1 block text-sm text-[#757575]">
-                    {plugin.description}
-                  </span>
                 </Link>
               </td>
-              <td className="dn text-[1.1rem]">{plugin.platform}</td>
-              <td className="dn text-[1.1rem]">{plugin.developer}</td>
+              <td className="text-[1.1rem]">{plugin.platform}</td>
               <td>
                 <RiskBadge level={plugin.riskLevel} />
               </td>
               <td>
                 <VerificationBadge status={plugin.verificationStatus} />
-              </td>
-              <td className="dn text-[1rem] text-[#757575]">
-                {plugin.reviewedAt}
               </td>
               <td className="text-right">→</td>
             </tr>
