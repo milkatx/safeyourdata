@@ -3,6 +3,7 @@ export type RiskLevel = (typeof RISK_LEVELS)[number];
 
 export const VERIFICATION_STATUSES = [
   "Verified",
+  "Independent Review",
   "Community Review",
   "Needs Review",
   "Unknown",

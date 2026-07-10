@@ -17,6 +17,7 @@ export function RiskBadge({ level }: { level: RiskLevel }) {
 
 const verificationClass: Record<VerificationStatus, string> = {
   Verified: "badge-verified",
+  "Independent Review": "badge-verified",
   "Community Review": "badge-community-review",
   "Needs Review": "badge-needs-review",
   Unknown: "badge-unknown",
