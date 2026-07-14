@@ -47,6 +47,14 @@ function pluginValue(plugin: Plugin, category: FilterCategory): string {
   }
 }
 
+/** A plugin's platform field may list several platforms, e.g. "Figma, FigJam". */
+function platformTokens(plugin: Plugin): string[] {
+  return plugin.platform
+    .split(",")
+    .map((p) => p.trim())
+    .filter(Boolean);
+}
+
 function emptyFilters(): ActiveFilters {
   return {
     platform: [],
@@ -100,7 +108,11 @@ export default function Directory({ plugins }: { plugins: Plugin[] }) {
   const options = useMemo(() => {
     const result = {} as Record<FilterCategory, string[]>;
     for (const category of FILTER_CATEGORIES) {
-      const values = new Set(plugins.map((p) => pluginValue(p, category)));
+      const values = new Set(
+        category === "platform"
+          ? plugins.flatMap((p) => platformTokens(p))
+          : plugins.map((p) => pluginValue(p, category))
+      );
       result[category] = Array.from(values).sort();
     }
     return result;
@@ -122,7 +134,11 @@ export default function Directory({ plugins }: { plugins: Plugin[] }) {
       }
       return FILTER_CATEGORIES.every((category) => {
         const active = filters[category];
-        return active.length === 0 || active.includes(pluginValue(plugin, category));
+        if (active.length === 0) return true;
+        if (category === "platform") {
+          return platformTokens(plugin).some((token) => active.includes(token));
+        }
+        return active.includes(pluginValue(plugin, category));
       });
     });
   }, [plugins, query, filters]);
